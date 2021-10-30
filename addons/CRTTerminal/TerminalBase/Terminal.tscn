@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/CRTTerminal/TerminalBase/Terminal.gd" type="Script" id=1]
+[ext_resource path="res://addons/CRTTerminal/Shader/CRTShader.gdshader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/crt_curve = 0.02
+shader_param/crt_scan_line_color = 0.347
+shader_param/aperture_grille_rate = 0.4
+shader_param/rf_switch_esque_blur = 0.075
+shader_param/white_noise_rate = 0.0
+
+[node name="Terminal" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.105882, 0.105882, 0.105882, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="ScrollContainer"]
+margin_right = 788.0
+margin_bottom = 1102.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0.87451, 0.0117647, 1 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, urna ut porta commodo, tellus mauris luctus est, vitae vulputate mi sem eu arcu. Ut molestie, nisi at vestibulum suscipit, arcu augue pretium arcu, eu finibus mauris libero eu neque. Vivamus elit dolor, volutpat a enim pretium, pharetra rhoncus quam. Mauris elementum, dui quis varius venenatis, magna ligula malesuada orci, ut vulputate ante felis vel mauris. Morbi tempor id sapien vel cursus. Donec efficitur sem sed est consectetur iaculis eu eget ex. Sed sit amet malesuada augue, vel sodales neque. Phasellus fringilla tincidunt felis, quis fringilla eros vehicula sed. Praesent ut convallis sem. Maecenas sed vestibulum nibh. Aenean vitae nisl mauris. Duis rutrum vel lectus ac molestie. Sed quis ipsum quis dolor mattis consequat.
+
+Sed eu tellus non risus viverra sodales vel vel lorem. Morbi suscipit placerat tellus nec facilisis. Cras efficitur mi at lacus sodales malesuada. Ut et eleifend augue. Nunc eget nunc sem. Fusce ornare risus turpis, varius porta libero imperdiet at. Donec gravida eros a molestie rhoncus.
+
+Nullam commodo mollis diam ut mollis. In porta non eros sed facilisis. Suspendisse tempus urna nulla. Vivamus elementum ante eu augue ultricies, nec tincidunt nisi gravida. Mauris et lorem at enim convallis luctus. Suspendisse eget dui non orci egestas ornare. Etiam pellentesque sapien eget tortor lacinia, efficitur lacinia urna congue. Sed condimentum gravida lacus id pretium. Cras vitae neque tellus. Integer mattis magna ac luctus volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed tristique leo non porttitor consectetur. Integer rhoncus turpis at augue congue, a accumsan tortor iaculis. In tempor nulla et felis sodales, vitae cursus nisl bibendum. Fusce eget interdum ipsum. Donec quis imperdiet est.
+
+Aliquam quis luctus urna. Aliquam erat volutpat. Vivamus vehicula vehicula lacus at faucibus. Nam nunc lectus, placerat id scelerisque quis, tempus commodo dolor. Sed sollicitudin auctor luctus. Nam sit amet feugiat nunc. Nullam elementum ligula quis risus tempus, eu cursus neque ultricies. Praesent risus augue, porta ac euismod a, lacinia non erat. Proin vehicula molestie enim volutpat consequat.
+
+Vivamus mollis dictum nulla, sed auctor magna egestas quis. Sed semper nunc pellentesque lacus porta, ut facilisis justo posuere. Cras eu diam nec nibh feugiat feugiat at in sem. Suspendisse volutpat ultrices lobortis. Duis imperdiet euismod nibh quis vestibulum. Vestibulum non porttitor urna, non fermentum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam et tortor ut nibh ultricies porta. In volutpat nec libero lobortis porta. Vestibulum convallis gravida metus nec cursus. Donec lobortis enim ac urna feugiat, a sagittis orci consectetur.
+
+Sed ligula diam, euismod a tincidunt in, scelerisque in nibh. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur efficitur nulla suscipit lectus euismod consequat. Phasellus sit amet lacinia velit. Cras suscipit iaculis tortor non egestas. In nibh urna, laoreet quis dignissim at, vulputate a tellus. Integer eget libero sit amet felis consequat rutrum eu eget urna. Sed pulvinar risus a nisi finibus auctor. Cras sagittis vitae tortor sit amet vestibulum. Proin sed sodales sapien, eu condimentum massa. Vestibulum venenatis consectetur justo, id dictum eros semper vel. Etiam suscipit vestibulum tristique.
+
+Maecenas at tellus nec turpis venenatis gravida. Mauris nisi lorem, sollicitudin et urna id, facilisis ornare augue. Proin pretium, dolor nec elementum fermentum, quam orci vulputate justo, quis dignissim dui nibh vitae tellus. Ut gravida ac velit sit amet malesuada. Pellentesque sodales massa arcu, quis viverra lorem dapibus sed. Nunc fermentum blandit ex, quis vestibulum lorem tempor quis. Vestibulum eu purus volutpat, congue odio id, auctor erat. Aenean pretium tempor nibh, vel egestas eros efficitur eu. Quisque urna ipsum, dictum ultricies congue ut, maximus a nisl. Donec aliquet nulla quis vulputate mollis. Morbi vitae dapibus tellus. Vivamus at leo at enim tempor pretium sed non elit. Ut magna leo, congue quis tortor a, luctus ultricies justo. Donec bibendum iaculis est, vitae semper dui.
+
+Nulla imperdiet lacus sapien, id bibendum orci bibendum porttitor. Fusce massa turpis, mattis luctus metus id, venenatis ultricies mi. Phasellus at risus eget dolor aliquet tempus. Duis volutpat mattis vestibulum. Sed tristique vulputate enim at egestas. In eu lacinia ipsum. Sed accumsan, nunc sit amet cursus efficitur, nibh enim vulputate mi, et venenatis felis orci sed ipsum. Pellentesque cursus posuere ultrices. Maecenas iaculis massa nulla, vitae placerat justo sodales et. In eu est magna. Ut luctus, tortor a viverra posuere, tortor ex semper justo, placerat laoreet nulla mauris sed nulla. Vestibulum sed porta sapien. Morbi finibus felis vitae rutrum pellentesque. Donec at libero lacus. Etiam laoreet porta diam. Curabitur dignissim justo libero, id convallis dolor mollis eget.
+
+Sed euismod massa mi, lobortis fermentum magna venenatis vel. Nulla magna elit, semper ac convallis vel, efficitur in libero. Duis pulvinar arcu a nisi porta, iaculis pretium ex malesuada. Aliquam non turpis sit amet erat tincidunt finibus. Nunc a enim eget lorem fermentum mollis. Cras id arcu lacus. Duis porttitor metus id ipsum lacinia, at interdum arcu luctus. Duis fermentum turpis vel leo rutrum, id posuere dolor aliquam. Aliquam imperdiet lorem augue. Proin at enim et neque sagittis tristique. Nulla ornare ut ligula sit amet viverra. Morbi hendrerit convallis libero. Praesent vel molestie nibh, eu lobortis nunc.
+
+Aliquam nisi sapien, ornare ut luctus id, blandit eget dolor. Vivamus non lacus vulputate dui lobortis blandit sed dapibus diam. Sed accumsan aliquam aliquam. Integer consectetur placerat faucibus. Ut finibus nec tellus quis ornare. Etiam viverra porta nisl, vestibulum cursus leo blandit eget. Mauris volutpat sagittis nisl, quis fermentum purus porttitor nec.
+"
+autowrap = true
+
+[node name="CRTEffect" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
