@@ -29,7 +29,6 @@ func _input(event):
 	var string = event.as_text()
 	
 	if m_input_state == e_input_states.NO_INPUT:
-		print("returning")
 		return
 	
 	if string == "Enter":
@@ -37,14 +36,19 @@ func _input(event):
 		return
 	
 	if string == "BackSpace":
+		if m_cur_input == "":
+			return
+		
 		m_cur_input.erase(m_cur_input.length() - 1, 1)
-		var new_text = m_text.text
-		new_text.erase(m_text.text.length() - 1, 1)
-		m_text.text = new_text
+		
+		if m_input_state != e_input_states.INPUT_HIDDEN:
+			var new_text = m_text.text
+			new_text.erase(m_text.text.length() - 1, 1)
+			m_text.text = new_text
+		
 		return
 	
-	if m_input_state == e_input_states.INPUT_SHOWN:
-		print("shown")
+	if m_input_state != e_input_states.INPUT_HIDDEN:
 		print_string(string)
 	
 	m_cur_input += string
