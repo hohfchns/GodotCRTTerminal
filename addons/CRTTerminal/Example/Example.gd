@@ -4,7 +4,7 @@ onready var terminal = $Terminal
 
 # Put the function or code you want the terminal to run here!
 func _ready():
-	reverse_string()
+	hidden_input()
 
 
 func basic_test_print():
@@ -40,3 +40,8 @@ func reverse_string():
 	for i in range(input_string.length() -1, -1, -1):
 		new_string += input_string[i]
 	terminal.print_line("Here is your reversed string: " + new_string)
+
+
+func hidden_input():
+	var input_string: String = yield(terminal.get_input("Hey, type something, I promise I won't show it! ", true), "completed")
+	terminal.print_line("Just kidding! Here is what you typed! " + input_string)
