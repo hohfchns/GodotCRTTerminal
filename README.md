@@ -35,3 +35,6 @@ Usage is simple, some sample code can be found in the examples folder, but here 
     terminal.print_line(user_input)
 ```
 
+# Credit Where Credit's Due
+This project uses the CRT Shader made by arlez80 on godotshaders.com and can be found in the following link:
+https://godotshaders.com/shader/crt-shader/
