@@ -37,8 +37,8 @@ func _input(event):
 		return
 	
 	if string == "Enter":
-		emit_signal("stop_input")
 		emit_signal("input_processed", string)
+		emit_signal("stop_input")
 		return
 	
 	if string == "BackSpace":

@@ -6,7 +6,12 @@ onready var terminal = $Terminal
 func _ready():
 	terminal.clear()
 	
-	var string = yield(wait_for_input("Welcome to the terminal, press any key to continue"), "completed")
+	
+	var input = yield(terminal.get_input("Type some test input: "), "completed")
+	terminal.print_line(input + "\n")
+	
+	var string = yield(wait_for_input("Press any key to continue"), "completed")
+	terminal.clear()
 	
 #	terminal.print_line(string)
 	hidden_input()
