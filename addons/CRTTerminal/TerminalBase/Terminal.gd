@@ -15,7 +15,8 @@ onready var m_text: Label = $ScrollContainer/Text
 
 var m_cur_input: String = ""
 
-signal input_recieved(key_str)
+signal input_recieved
+signal input_processed(key_str)
 signal stop_input
 
 
@@ -27,19 +28,22 @@ func _input(event):
 	if not just_pressed:
 		return
 	
+	emit_signal("input_recieved")
+	
 	var string = event.as_text()
 	
-	emit_signal("input_recieved", string)
-	
 	if m_input_state == e_input_states.NO_INPUT:
+		emit_signal("input_processed", string)
 		return
 	
 	if string == "Enter":
 		emit_signal("stop_input")
+		emit_signal("input_processed", string)
 		return
 	
 	if string == "BackSpace":
 		if m_cur_input == "":
+			emit_signal("input_processed", string)
 			return
 		
 		m_cur_input.erase(m_cur_input.length() - 1, 1)
@@ -49,12 +53,16 @@ func _input(event):
 			new_text.erase(m_text.text.length() - 1, 1)
 			m_text.text = new_text
 		
+		emit_signal("input_processed", string)
 		return
 	
 	if m_input_state != e_input_states.INPUT_HIDDEN:
 		print_string(string)
+		emit_signal("input_processed", string)
 	
 	m_cur_input += string
+	
+	emit_signal("input_processed", string)
 
 
 func scroll_to_bottom() -> void:
@@ -88,6 +96,14 @@ func get_input(request_text: String = "", hide_input: bool = false) -> String:
 	return m_cur_input
 
 
+func reset_input() -> void:
+	if m_input_state == e_input_states.INPUT_SHOWN:
+		var new_text = m_text.text
+		new_text.erase(m_text.text.length() - m_cur_input.length(), m_cur_input.length())
+		m_text.text = new_text
+	
+	m_cur_input = ""
 
-func clear():
+
+func clear() -> void:
 	m_text.text = ""

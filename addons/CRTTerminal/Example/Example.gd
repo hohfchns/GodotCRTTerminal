@@ -8,9 +8,7 @@ func _ready():
 	
 	var string = yield(wait_for_input("Welcome to the terminal, press any key to continue"), "completed")
 	
-	# terminal.print_line(string)
-	terminal.clear()
-	
+#	terminal.print_line(string)
 	hidden_input()
 
 
@@ -56,4 +54,4 @@ func hidden_input():
 
 func wait_for_input(text: String):
 	terminal.print_line(text)
-	return yield(terminal, "input_recieved")
+	return yield(terminal, "input_processed")
