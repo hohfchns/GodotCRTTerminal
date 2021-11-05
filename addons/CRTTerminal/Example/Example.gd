@@ -4,6 +4,13 @@ onready var terminal = $Terminal
 
 # Put the function or code you want the terminal to run here!
 func _ready():
+	terminal.clear()
+	
+	var string = yield(wait_for_input("Welcome to the terminal, press any key to continue"), "completed")
+	
+	# terminal.print_line(string)
+	terminal.clear()
+	
 	hidden_input()
 
 
@@ -45,3 +52,8 @@ func reverse_string():
 func hidden_input():
 	var input_string: String = yield(terminal.get_input("Hey, type something, I promise I won't show it! ", true), "completed")
 	terminal.print_line("Just kidding! Here is what you typed! " + input_string)
+
+
+func wait_for_input(text: String):
+	terminal.print_line(text)
+	return yield(terminal, "input_recieved")

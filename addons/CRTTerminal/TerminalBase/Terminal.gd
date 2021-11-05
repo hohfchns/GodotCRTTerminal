@@ -15,6 +15,7 @@ onready var m_text: Label = $ScrollContainer/Text
 
 var m_cur_input: String = ""
 
+signal input_recieved(key_str)
 signal stop_input
 
 
@@ -27,6 +28,8 @@ func _input(event):
 		return
 	
 	var string = event.as_text()
+	
+	emit_signal("input_recieved", string)
 	
 	if m_input_state == e_input_states.NO_INPUT:
 		return
