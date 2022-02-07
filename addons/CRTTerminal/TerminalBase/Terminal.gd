@@ -15,7 +15,7 @@ onready var m_text: Label = $ScrollContainer/Text
 
 var m_cur_input: String = ""
 
-signal input_recieved
+signal input_received
 signal input_processed(key_str)
 signal stop_input
 
@@ -28,20 +28,21 @@ func _input(event):
 	if not just_pressed:
 		return
 	
-	emit_signal("input_recieved")
+	emit_signal("input_received")
 	
-	var string = event.as_text()
+	var string = char(event.unicode)
+	var raw_key = event.as_text()
 	
 	if m_input_state == e_input_states.NO_INPUT:
 		emit_signal("input_processed", string)
 		return
 	
-	if string == "Enter":
+	if raw_key == "Enter":
 		emit_signal("input_processed", string)
 		emit_signal("stop_input")
 		return
 	
-	if string == "BackSpace":
+	if raw_key == "BackSpace":
 		if m_cur_input == "":
 			emit_signal("input_processed", string)
 			return
